@@ -33,14 +33,14 @@ These packages are required to run the tool:
 | Arguments | Description |
 | --------- | ----------- |
 |-b BAMFILE | Filename of bam file. |
-|-c CODE_START | Start codon position in the reference sequence. |
-|-l READ_LENGTH | Length cut off for read size. |
+|-c CODE_START | Start codon position in the reference sequence |
+| -l READ_LENGTH | Length cut off for read size |
 |-nr NUM_REF | Number of references used in the alignment. |
 |-q QUAL_THRESHOLD | Base quality score cut off. |
 |-j JUMP | Increase this to make larger read intervals. Outputs less number of files but larger in size for the occasion when there's an upper limit to how many files are allowed to be opened for writing at the same time. |
-|-ht HD_THRESHOLD | Hamming distance threshold used to call clusters. [Default = 234] |
+| -ht HD_THRESHOLD | Hamming distance threshold used to call clusters. [Default = 234] |
 |-mc MINREAD_CLUSTER | Minimum no. of reads to accept as a cluster. [Default = 30] |
-|-ct CONSENSUS_THRESHOLD | Threshold to call a nucleotide to be consensus. [Default = 0.40] |
+|-ct CONSENSUS_THRESHOLD| Threshold to call a nucleotide to be consensus. [Default = 0.40] |
 |-d, --dendrogram | Draw a dendrogram to help determine HD_Threshold (-ht) cutoff. |
 |-hd, --keep_hdFile | Retain the Hamming Distances calculated. **Note:** Could take up a lot of space.|
 |-kc, --keep_clusters | Retain the clustered reads. **Note:** Could take up alot of space.|
@@ -55,4 +55,8 @@ usage: indelRemover003G.py [-h] -b BAMFILE -c CODE_START -l READ_LENGTH -nr NUM_
 $  python indelRemover003G.py -b example.bam -c 1 -l 9000 -nr 1 -q 5 -j 10 
 ```
 
+### Algorithm Outputs
+The algorithm will create a folder called **'Results'**, and within that folder there would be pairs of **.fa** files associated with the number of references (option -nr). For instance, if you've used 2 references in the bam file, then there should be 2 pairs of fasta files.
+
+The first file will have suffix **'_ClusterConsensus.fa'**, which contains the estimated viral variants of the reference used (which will be the prefix of the fasta file). E.g. **Subject1_ClusterConsensus.fa** will contains viral variant estimation from reads aligned to Subject1 reference. The second file will simply be a collection of cleaned and trimmed reads used to identify clusters.
 
