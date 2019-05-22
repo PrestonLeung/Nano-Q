@@ -33,12 +33,12 @@ These packages are required to run the tool:
 | Arguments | Description |
 | --------- | ----------- |
 |-b BAMFILE | Filename of bam file. |
-|-c CODE_START | Start codon position in the reference sequence |
-| -l READ_LENGTH | Length cut off for read size |
+|-c CODE_START | Start codon position in the reference sequence. |
+|-l READ_LENGTH | Length cut off for read size. |
 |-nr NUM_REF | Number of references used in the alignment. |
 |-q QUAL_THRESHOLD | Base quality score cut off. |
-|-j JUMP | Increase this to make larger read intervals. |
-| -ht HD_THRESHOLD | Hamming distance threshold used to call clusters. [Default = 234] |
+|-j JUMP | Increase this to make larger read intervals. Outputs less number of files but larger in size for the occasion when there's an upper limit to how many files are allowed to be opened for writing at the same time. |
+|-ht HD_THRESHOLD | Hamming distance threshold used to call clusters. [Default = 234] |
 |-mc MINREAD_CLUSTER | Minimum no. of reads to accept as a cluster. [Default = 30] |
 |-ct CONSENSUS_THRESHOLD| Threshold to call a nucleotide to be consensus. [Default = 0.40] |
 |-d, --dendrogram | Draw a dendrogram to help determine HD_Threshold (-ht) cutoff. |
