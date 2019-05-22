@@ -40,7 +40,7 @@ These packages are required to run the tool:
 |-j JUMP | Increase this to make larger read intervals. Outputs less number of files but larger in size for the occasion when there's an upper limit to how many files are allowed to be opened for writing at the same time. |
 |-ht HD_THRESHOLD | Hamming distance threshold used to call clusters. [Default = 234] |
 |-mc MINREAD_CLUSTER | Minimum no. of reads to accept as a cluster. [Default = 30] |
-|-ct CONSENSUS_THRESHOLD| Threshold to call a nucleotide to be consensus. [Default = 0.40] |
+|-ct CONSENSUS_THRESHOLD | Threshold to call a nucleotide to be consensus. [Default = 0.40] |
 |-d, --dendrogram | Draw a dendrogram to help determine HD_Threshold (-ht) cutoff. |
 |-hd, --keep_hdFile | Retain the Hamming Distances calculated. **Note:** Could take up a lot of space.|
 |-kc, --keep_clusters | Retain the clustered reads. **Note:** Could take up alot of space.|
