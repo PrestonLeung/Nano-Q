@@ -38,7 +38,7 @@ These packages are required to run the tool:
 |-nr NUM_REF | Number of references used in the alignment. |
 |-q QUAL_THRESHOLD | Base quality score cut off. |
 |-j JUMP | Increase this to make larger read intervals. |
-| -ht HD_THRESHOLD | Hamming distance threshold to call clusters. [Default = 234] |
+| -ht HD_THRESHOLD | Hamming distance threshold used to call clusters. [Default = 234] |
 |-mc MINREAD_CLUSTER | Minimum no. of reads to accept as a cluster. [Default = 30] |
 |-ct CONSENSUS_THRESHOLD| Threshold to call a nucleotide to be consensus. [Default = 0.40] |
 |-d, --dendrogram | Draw a dendrogram to help determine HD_Threshold (-ht) cutoff. |
