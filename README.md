@@ -28,6 +28,8 @@ These packages are required to run the tool:
 
 *Note - Using [Anaconda](https://www.anaconda.com/distribution/) to create an environment (just do a simple Google search on "Create Python3 environment in Anaconda") for Python3.7 as well as installing all the above python packages might be easier to do (thats what I did!).*
 
+[Minimap2](https://github.com/lh3/minimap2) and [GraphMap](https://github.com/isovic/graphmap) were used as aligners for sam/bam files. For Minimap2, *--MD* option needs to be turned on for the MD tag to appear in the alignment file, a requirement for ONT-Tool.
+
 ### Tool Arguments
  
 | Arguments | Description |
@@ -60,3 +62,4 @@ The algorithm will create a folder called **'Results'**, and within that folder 
 
 The first file will have suffix **'_ClusterConsensus.fa'**, which contains the estimated viral variants of the reference used (which will be the prefix of the fasta file). E.g. **Subject1_ClusterConsensus.fa** will contains viral variant estimation from reads aligned to Subject1 reference. The second file will simply be a collection of cleaned and trimmed reads used to identify clusters.
 
+This ReadMe was written using [Dillinger](https://dillinger.io/).
