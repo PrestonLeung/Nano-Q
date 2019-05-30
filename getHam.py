@@ -12,9 +12,11 @@ if __name__ == '__main__':
 
     program_function = """
     *****
-    getHam.
+    
+    Get pairwise Hamming Distance given a file containing fasta file.
 
-
+    Brief parameter instruction
+    
     *****
     """   
 
@@ -35,11 +37,6 @@ if __name__ == '__main__':
     
     recordSeqList = []
     recordNameList = []
-    # partner_i = []
-    # partner_j = []
-    # hamList = []    
-    # seqRecord = sc.getFile(args.faFile)
-
     recordNameList, recordSeqList = sc.simpleParse(args.faFile)    
 
     hamPath = args.faFile + "_HamDist"
@@ -49,10 +46,6 @@ if __name__ == '__main__':
     except OSError:
         #print "Using existing directory: {}".format(hamPath)
         pass # already exists
-    
-    # for string in seqRecord    :
-    #     recordNameList.append(string.id)
-    #     recordSeqList.append(string.seq)
         
     loopName = "{}_{}.txt".format(args.start,args.end)
     writeHandle = open(hamPath+"/"+loopName,'w')
@@ -65,16 +58,6 @@ if __name__ == '__main__':
             writeHandle.write(str(recordNameList[i]) +"\t")
             writeHandle.write(str(recordNameList[j]) +"\t")
             writeHandle.write(str(sc.getSomeHam(str(recordSeqList[i]), str(recordSeqList[j]))) +"\n")
-
-
-            # hamList.append(sc.getSomeHam(str(recordSeqList[i]), str(recordSeqList[j])))
-            # partner_i.append(recordNameList[i])
-            # partner_j.append(recordNameList[j])
-
-    # for i in range(0,len(hamList)):
-    #     writeHandle.write(str(partner_i[i]) +"\t")
-    #     writeHandle.write(str(partner_j[i]) +"\t")
-    #     writeHandle.write(str(hamList[i]) +"\n")
     
     writeHandle.close()
         
