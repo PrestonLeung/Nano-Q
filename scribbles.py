@@ -35,6 +35,7 @@ def simpleParse(filename):
 # identifying insertions and their quality scores in each entry of a bamfile
 # returns a dictionary with aligned sequence position as KEY
 # and a length = 2 list containing nucleotide and quality score
+
 def findInsertions(seqList, cigarList, qualList):    
     seqIndex = -1 #set at -1 to deal with stupid fence post issues 
     softClipCount = -1
@@ -42,7 +43,6 @@ def findInsertions(seqList, cigarList, qualList):
     for cTuple in cigarList:        
         # is an insertion
         if(cTuple[0] == 1):
-            #print cTuple
             numInsertions = cTuple[1]
             for i in range(0,numInsertions):
                 seqIndex += 1
@@ -54,22 +54,16 @@ def findInsertions(seqList, cigarList, qualList):
             pass
         else:            
             seqIndex += cTuple[1]    
-    for key in list(insertionDict.keys()):
-        #print qualList
+    for key in list(insertionDict.keys()):        
         insertionDict[key].append(list(qualList)[key])
     return insertionDict
-        
-#insertDict = findInsertions(list(testObj.query_alignment_sequence), tuplePlay, testObj.query_alignment_qualities)
-#findInsertions(list(testObj.query_sequence), tuplePlay)
 
-
-#for key in sorted(insertDict.keys()):
-#    print key, insertDict[key]
 
 #==========================="Find Deletions"===========================#
 # Returns a dictionary with a tuple as key, containing aligned positions of where deletions occur
 # Tuple length >1 indicates consecutive deletions
 # Dictionary value stores what nucleotide found on ref but not on read
+
 def findDeletions(alignedPosList, refSeq):
     
     deletionDict = {}
@@ -129,7 +123,6 @@ def findSubstitutions(seqList, cigarList, qualList,alignedPosList, refSeq):
             seqIndex += cTuple[1]
     return subsDict
 
-# testSubs = findSubstitutions(readSeq, readCigars, readQual, mappedPos, refSeq)
 
 #==========================="Find ReadStartCodon"===========================#
 # Input seqList should be from read.query_alignment_sequence
@@ -172,8 +165,6 @@ def readStartCodon(refStartCodon,seqList, cigarList, mappedToRef):
                 readIndex += cTuple[1]                        
     readSC += insCount
     return readSC
-
-# readStartCodon()
 
 
 #==========================="findStopCodons"===========================#
@@ -227,13 +218,11 @@ def trimReads(readHash, trimLen):
             else:
                 newHash[trimmedRead] = readHash[key]
         else:
-            
             if(key in newHash):
                 newHash[key].append(readHash[key])
             else:
                 newHash[key] = readHash[key] 
     return newHash
-
 
 
 #==========================="do some subprocess"===========================#
@@ -243,8 +232,7 @@ def trimReads(readHash, trimLen):
 def doSomeSubprocess(filePath, numReads, toolpath, jump = 2):
     
     procs = []
-    recordJump = -1 # this is to remember current i+chunk, -1 because i starts at 0
-    # resultFolder = filePath.split('/')[0]
+    recordJump = -1 # this is to remember current i+chunk, -1 because i starts at 0    
     subjectFaFile = filePath.split('/')[1]
     
     for i in range(0,numReads):        
@@ -256,10 +244,8 @@ def doSomeSubprocess(filePath, numReads, toolpath, jump = 2):
         assert(recordJump <= numReads)        
         proc = subprocess.Popen([sys.executable, toolpath + '/getHam.py', 
                                 '{}'.format(i), '{}'.format(recordJump),
-                                '{}'.format(numReads),'{}'.format(filePath)])
-        # print(f"toolpath + /getHam.py {i} {recordJump} {numReads} {filePath}")
-        procs.append(proc)
-    
+                                '{}'.format(numReads),'{}'.format(filePath)])        
+        procs.append(proc)    
     for proc in procs:
         proc.wait()    
     subProcessCleanUp(filePath)
@@ -319,30 +305,28 @@ def buildDM(hamDistFile, numReads):
             r2 = line.split('\t')[1]
             r1Num = int(r1.split('HAP')[1])            
             r2Num = int(r2.split('HAP')[1])
-            
-            
+                        
             if(r1Num >= numReads):
                 print(f"This is r1Num: {r1Num}")
             if(int(r2Num) >= numReads):
                 print(f"This is r2Num: {r2Num}, {type(r2Num)}, NumReads = {numReads}")
-            
+
             assert(r1Num < numReads)
-            assert(int(r2Num) < numReads)
-            
+            assert(int(r2Num) < numReads)            
             twoDArray[r1Num][int(r2Num)] = int(line.split('\t')[2]) 
-            twoDArray[int(r2Num)][r1Num] = int(line.split('\t')[2]) 
-            
+            twoDArray[int(r2Num)][r1Num] = int(line.split('\t')[2])             
         fileHandle.close()
     return twoDArray
 
-#==========================="main function"===========================#
+#==========================="Perform Hierarchical Clustering"===========================#
+# Takes in a distance matrix and returns clusters based on user given max_d
+# if toDraw is turned on, it will make an image of the dendrogram to help
+# users to determine what value to use for parameter max_d
+
 def hierarchClust(dist_matrix, max_d, toDraw):
     Xcondensed = sp.spatial.distance.squareform(dist_matrix)
-    # Z = linkage(Xcondensed, method="single")
     Z = linkage(Xcondensed, method="complete")
-    # fcluster(linkage(Xcondensed, method='single'), 2, criterion='maxclust')
-    clusters = fcluster(Z, max_d, criterion='distance')
-    # clusters = fcluster(Z, 5, criterion='maxclust')
+    clusters = fcluster(Z, max_d, criterion='distance')    
     if(toDraw):
         fig = plt.figure(figsize=(25, 10)) 
         dendrogram(Z)
@@ -350,6 +334,7 @@ def hierarchClust(dist_matrix, max_d, toDraw):
     return clusters
 
 #==========================="write clustered sequences into file"===========================#
+# Exactly as the title says.
 
 def printClusteredHap(cList, clusterID, faFile):
     clusterIndexes = [i for i, value in enumerate(cList) if value == clusterID]
@@ -361,7 +346,6 @@ def printClusteredHap(cList, clusterID, faFile):
         os.makedirs(results+'/Clusters')        
     except OSError:        
         pass # already exists 
-    
     
     assert(len(readID) == len(cList))
 
@@ -405,7 +389,7 @@ if(__name__ == '__main__'):
      {-o.o-}
       >   <    
     
-    scribbles.py contains functions for indelRemover003.py
+    scribbles.py contains functions for indelRemover003 series.
 
     -Fluff
 
