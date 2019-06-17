@@ -12,13 +12,17 @@ This algorithm was tested on a Linux machines:
 **Desktop**
 
 *Operating System: Ubuntu 14.04*
+
 *Memory: 32gb*
 *Processor: Intel Core i7-4790 3.60Ghz*
+
 
 **Internal Server**
 
 *Operating System: RedHat Enterprise Linux Server Release 6.9 Santiago)*
+
 *Memory: 529 gb*
+
 *Processors: 4x Intel Core Xeon E5-4650L 2.60GHz*
 
 **Process of algorithm:**
