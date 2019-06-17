@@ -82,6 +82,7 @@ The first file will have suffix **'_ClusterConsensus.fa'**, which contains the e
 ##### How to set up Anaconda
 1) [How](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/) to set up an environment in Anaconda with python.
 2) How to install python packages after activatnig python environment in Anaconda
+
     a. [Video Tutorial](https://www.youtube.com/watch?v=Z_Kxg-EYvxM)
     b.  ```conda install [package_name]``` or ```pip install [package_name]```
 
