@@ -14,6 +14,7 @@ This algorithm was tested on a Linux machines:
 *Operating System: Ubuntu 14.04*
 
 *Memory: 32gb*
+
 *Processor: Intel Core i7-4790 3.60Ghz*
 
 
