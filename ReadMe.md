@@ -9,7 +9,7 @@ This tool takes advantages of multiple cores if available, and in order to save 
 ##### Hardware used:
 This algorithm was tested on a Linux machines: 
 
-**Desktop**
+###### Desktop
 
 *Operating System: Ubuntu 14.04*
 
@@ -18,7 +18,7 @@ This algorithm was tested on a Linux machines:
 *Processor: Intel Core i7-4790 3.60Ghz*
 
 
-**Internal Server**
+###### Internal Server
 
 *Operating System: RedHat Enterprise Linux Server Release 6.9 Santiago)*
 
