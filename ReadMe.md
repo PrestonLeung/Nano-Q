@@ -84,6 +84,7 @@ The first file will have suffix **'_ClusterConsensus.fa'**, which contains the e
 2) How to install python packages after activatnig python environment in Anaconda
 
     a. [Video Tutorial](https://www.youtube.com/watch?v=Z_Kxg-EYvxM)
+    
     b.  ```conda install [package_name]``` or ```pip install [package_name]```
 
 ##### Aligners
