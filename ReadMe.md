@@ -7,7 +7,7 @@ This python tool takes in a **bam file** performs a conservative cleaning proced
 This tool takes advantages of multiple cores if available, and in order to save RAM usage, temporary files will be created in the process. These temporary files will be deleted at the end of the run, however since storing pairwise hamming distance could take up a lot of space, the size and number of files could be large (100gb+).
 
 ##### Hardware used:
-This algorithm was tested on a Linux machines: 
+This algorithm was tested on Linux machines: 
 
 ###### Desktop
 
