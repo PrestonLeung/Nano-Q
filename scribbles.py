@@ -234,6 +234,11 @@ def doSomeSubprocess(filePath, numReads, toolpath, jump = 2):
     procs = []
     recordJump = -1 # this is to remember current i+chunk, -1 because i starts at 0    
     subjectFaFile = filePath.split('/')[1]
+
+    if(len(toolpath) == 0):
+        getHamPath = "getHam.py"
+    else:
+        getHamPath = '/getHam.py'
     
     for i in range(0,numReads):        
         if(recordJump >= i):
@@ -242,7 +247,7 @@ def doSomeSubprocess(filePath, numReads, toolpath, jump = 2):
         if(recordJump >= numReads):
             recordJump = numReads            
         assert(recordJump <= numReads)        
-        proc = subprocess.Popen([sys.executable, toolpath + '/getHam.py', 
+        proc = subprocess.Popen([sys.executable, toolpath + getHamPath, 
                                 '{}'.format(i), '{}'.format(recordJump),
                                 '{}'.format(numReads),'{}'.format(filePath)])        
         procs.append(proc)    
