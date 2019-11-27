@@ -373,6 +373,23 @@ def makeConsensus(clusterFaFile, cThreshold):
         print (f"Warning: ambiguous nucleotides found (represented as character 'N') in {clusterFaFile}.")
     return cons
 
+
+#===========================" create consensus sequence"===========================#
+# This method uses alignIO to make a stupid consensus. The clusters given
+# to this functions should already be relatively similar.
+
+def consolidateConsensus(clusterFaFile):
+    seqHash = {}
+    readIDList, readSeqList = simpleParse(clusterFaFile)    
+    #readID and readSeq are same length
+    for i in range(0,len(readIDList)):
+        freq = float(readIDList[i].split('_')[1])        
+        if(readSeqList[i] not in seqHash):
+            seqHash[readSeqList[i]] = freq
+        else:
+            seqHash[readSeqList[i]] += freq
+    return seqHash
+
 #==========================="delete All.txt"===========================#
 # Removes folder. Especially All.txt because it could take up a lot of 
 # space. Once the code is done We don't really need that file anymore 
@@ -381,6 +398,10 @@ def makeConsensus(clusterFaFile, cThreshold):
 
 def removeFolder(filePath):    
     subprocess.call(['rm', '-r',f'{filePath}'])
+
+#==========================="delete temporary Consensus file"===========================#
+def removeFile(filePath):
+    subprocess.call(['rm',f'{filePath}'])
 
 #==========================="main function"===========================#
 if(__name__ == '__main__'):   
