@@ -138,7 +138,7 @@ if __name__ == '__main__':
     
     program_function = """
     *****
-    IndelRemover003H:
+    Nano-Q Tool:
         
         This tool takes in a bam file performs a conservative cleaning procedure and
         then uses a hierachical clustering method based on hamming distance to identify
