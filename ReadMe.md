@@ -76,7 +76,7 @@ usage: indelRemover003G.py [-h] -b BAMFILE -c CODE_START -l READ_LENGTH -nr NUM_
 
 #### Example
 ```sh
-$  python indelRemover003G.py -b example.bam -c 1 -l 9000 -nr 1 -q 5 -j 10 
+$  python nano-q.py -b example.bam -c 1 -l 9000 -nr 1 -q 5 -j 10 
 ```
 
 ### Algorithm Outputs
