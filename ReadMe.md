@@ -1,4 +1,5 @@
-# ONT-Tool
+
+# Nano-Q Tool
 Python script for conservatively cleaning ONT reads from bam files and estimate variant frequencies.
 
 ### Brief Description
@@ -9,7 +10,7 @@ This tool takes advantages of multiple cores if available, and in order to save 
 ##### Hardware used:
 This algorithm was tested on Linux machines: 
 
-###### Desktop
+##### Desktop
 
 *Operating System: Ubuntu 14.04*
 
@@ -18,7 +19,7 @@ This algorithm was tested on Linux machines:
 *Processor: Intel Core i7-4790 3.60Ghz*
 
 
-###### Internal Server
+##### Internal Server
 
 *Operating System: RedHat Enterprise Linux Server Release 6.9 Santiago)*
 
@@ -105,7 +106,7 @@ Here are some usage examples for:
 1) [Minimap2 Examples](https://github.com/lh3/minimap2#getting-started)
 2) [Graphmap Examples](https://github.com/isovic/graphmap#usage-examples)
 
-Then you can transfer sam to bam files as well as any other alignment file manipulation through [samtools](http://www.htslib.org/download/).
+Then you can convert sam to bam files as well as perform any other alignment file manipulation through [samtools](http://www.htslib.org/download/).
 
 ##### Quick guide for samtools v1.9
 
