@@ -71,7 +71,7 @@ These packages are required to run the tool:
 
 ### Commandline
 ```sh
-usage: indelRemover003G.py [-h] -b BAMFILE -c CODE_START -l READ_LENGTH -nr NUM_REF -q QUAL_THRESHOLD [-j JUMP] [-ht HD_THRESHOLD] [-mc MINREAD_CLUSTER] [-ct CONSENSUS_THRESHOLD] [-d] [-hd] [-kc]
+usage: nano-q.py [-h] -b BAMFILE -c CODE_START -l READ_LENGTH -nr NUM_REF -q QUAL_THRESHOLD [-j JUMP] [-ht HD_THRESHOLD] [-mc MINREAD_CLUSTER] [-ct CONSENSUS_THRESHOLD] [-d] [-hd] [-kc]
 ```
 
 #### Example
