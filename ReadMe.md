@@ -21,7 +21,7 @@ This algorithm was tested on Linux machines:
 
 ##### Internal Server
 
-*Operating System: RedHat Enterprise Linux Server Release 6.9 Santiago)*
+*Operating System: RedHat Enterprise Linux Server Release 6.9 Santiago*
 
 *Memory: 529 gb*
 
