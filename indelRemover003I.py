@@ -192,7 +192,7 @@ if __name__ == '__main__':
     args=parser.parse_args()    
     
     if(not CF.okFile(args.bamfile)):
-        raise CF.InputError(args.bamfile,  "Invalid fasta file: ")
+        raise CF.InputError(args.bamfile,  "Invalid bam file: ")
     if(args.jump):
         Jump = args.jump
     else:
