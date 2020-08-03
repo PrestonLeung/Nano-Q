@@ -24,7 +24,8 @@ def getFile(filename):
     try:
         OpenFastaFile = open(filename)    
     except IOError:
-            print "Error: cannot find {}".format(filename)            
+            # print "Error: cannot find {}".format(filename)
+            print(f"Error: cannot find {filename}.")
     else:
         record = SeqIO.parse(OpenFastaFile,  "fasta")
         OpenFastaFile.close        
