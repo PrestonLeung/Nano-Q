@@ -43,9 +43,9 @@ def okFile(file):
 
 #========================"Self defined Errors and Exceptions"=======================#
 
-# class Error(Exception):
-#     """Base class for exceptions."""
-#     pass
+class Error(Exception):
+    """Base class for exceptions."""
+    pass
     
 #Error classes for handling input errors
 class InputError (Error):
