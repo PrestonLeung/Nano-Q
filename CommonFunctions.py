@@ -1,6 +1,6 @@
-#!/usr/local/bin/python2.7
+#!/usr/local/bin/python3
 # Common Functions
-# Ver. 0.01
+# Ver. 0.02
 # Pre.L
 
 import os
