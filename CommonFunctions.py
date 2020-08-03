@@ -92,5 +92,4 @@ class InputError (Error):
 #========================"Main"=======================#
 
 if __name__ == '__main__':
-    print "This python script is used to store common functions as an import module."
-        
+    print("This python script is used to store common functions as an import module.")        
