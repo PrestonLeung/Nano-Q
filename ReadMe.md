@@ -3,7 +3,7 @@
 Python script for conservatively cleaning ONT reads from bam files and estimate variant frequencies.
 
 ### Brief Description
-This python tool takes in a **bam file** performs a conservative cleaning procedure and then uses a hierachical clustering method based on hamming distance to identify potential variants. For each cluster formed using hierachical clustering, a consensus sequence is produced to represent that cluster and frequency of occurrence is measured based on reads per cluster over total reads extracted from the alignment.
+This python tool takes in a **bam file**, performs a conservative cleaning procedure and then uses a hierachical clustering method based on hamming distance to identify potential variants. For each cluster formed using hierachical clustering, a consensus sequence is produced to represent that cluster and frequency of occurrence is measured based on reads per cluster over total reads extracted from the alignment.
 
 This tool takes advantages of multiple cores if available, and in order to save RAM usage, temporary files will be created in the process. These temporary files will be deleted at the end of the run, however since storing pairwise hamming distance could take up a lot of space, the size and number of files could be large (100gb+).
 
@@ -84,6 +84,9 @@ $  python nano-q.py -b example.bam -c 1 -l 9000 -nr 1 -q 5 -j 10
 The algorithm will create a folder called **'Results'**, and within that folder there would be pairs of **.fa** files associated with the number of references (option -nr). For instance, if you've used 2 references in the bam file, then there should be 2 pairs of fasta files.
 
 The first file will have suffix **'_ClusterConsensus.fa'**, which contains the estimated viral variants of the reference used (which will be the prefix of the fasta file). E.g. **Subject1_ClusterConsensus.fa** will contains viral variant estimation from reads aligned to Subject1 reference. The second file will simply be a collection of cleaned and trimmed reads used to identify clusters.
+
+### Publication
+Please cite this [publication](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-021-07460-1) by Riaz et al. if you use this tool.
 
 # Additional Help
 
