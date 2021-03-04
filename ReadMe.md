@@ -5,7 +5,7 @@ Python script for conservatively cleaning ONT reads from bam files and estimate 
 ### Brief Description
 This python tool takes in a **bam file**, performs a conservative cleaning procedure and then uses a hierachical clustering method based on hamming distance to identify potential variants. For each cluster formed using hierachical clustering, a consensus sequence is produced to represent that cluster and frequency of occurrence is measured based on reads per cluster over total reads extracted from the alignment.
 
-This tool takes advantages of multiple cores if available, and in order to save RAM usage, temporary files will be created in the process. These temporary files will be deleted at the end of the run, however since storing pairwise hamming distance could take up a lot of space, the size and number of files could be large (100gb+).
+This tool takes advantages of multiple cores if available, and in order to save RAM usage, temporary files will be created in the process. These temporary files will be deleted at the end of the run, however since storing pairwise hamming distance could take up a lot of space, the size and number of files could be large (100 GB+).
 
 ##### Hardware used:
 This algorithm was tested on Linux machines: 
@@ -68,7 +68,7 @@ These packages are required to run the tool:
 |-ct CONSENSUS_THRESHOLD| Threshold to call a nucleotide to be consensus. [Default = 0.40] |
 |-d, --dendrogram | Draw a dendrogram to help determine HD_Threshold (-ht) cutoff. |
 |-hd, --keep_hdFile | Retain the Hamming Distances calculated. **Note:** Could take up a lot of space.|
-|-kc, --keep_clusters | Retain the clustered reads. **Note:** Could take up alot of space.|
+|-kc, --keep_clusters | Retain the clustered reads. **Note:** Could take up a lot of space.|
 
 ### Commandline
 ```sh
@@ -92,7 +92,7 @@ Please cite this [publication](https://bmcgenomics.biomedcentral.com/articles/10
 
 ##### How to set up Anaconda
 1) [How](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/) to set up an environment in Anaconda with python.
-2) How to install python packages after activatnig python environment in Anaconda
+2) How to install python packages after activating python environment in Anaconda
 
     a. [Video Tutorial](https://www.youtube.com/watch?v=Z_Kxg-EYvxM)
     
