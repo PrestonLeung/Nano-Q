@@ -51,7 +51,7 @@ These packages are required to run the tool:
 
 *Note - Using [Anaconda](https://www.anaconda.com/distribution/) to create an environment (just do a simple Google search on "Create Python3 environment in Anaconda") for Python3.7 as well as installing all the above python packages might be easier to do (thats what I did!).*
 
-[Minimap2](https://github.com/lh3/minimap2) and [GraphMap](https://github.com/isovic/graphmap) were used as aligners for sam/bam files. For Minimap2, *--MD* option needs to be turned on for the MD tag to appear in the alignment file, a requirement for ONT-Tool.
+[Minimap2](https://github.com/lh3/minimap2) and [GraphMap](https://github.com/isovic/graphmap) were used as aligners for sam/bam files. For Minimap2, *--MD* option needs to be turned on for the MD tag to appear in the alignment file, a requirement for Nano-Q.
 
 ### Tool Arguments
  
